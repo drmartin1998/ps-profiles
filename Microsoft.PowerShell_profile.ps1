@@ -9,6 +9,9 @@ Set-Alias subl "C:\Program Files (x86)\Sublime Text 2\sublime_text.exe"
 #########################################################################
 set-content function:\mklink "cmd /c mklink `$args"
 
+#########################################################################
+##! Color LL Output Unixish
+#########################################################################
 function LL {
 <#
 .Synopsis
@@ -69,6 +72,9 @@ function LL {
     }
 }
 
+#########################################################################
+##! Setup Git Environment
+#########################################################################
 Push-Location (Split-Path -Path $MyInvocation.MyCommand.Definition -Parent)
 
 # Load posh-git module from current directory
@@ -78,7 +84,9 @@ Import-Module "C:\Users\David\Code\posh-git\posh-git"
 # use this instead (see about_Modules for more information):
 # Import-Module posh-git
 
-
+#########################################################################
+##! Customize Prompt
+#########################################################################
 # Set up a simple prompt, adding the git prompt parts inside git repos
 $global:CurrentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent()
 function prompt {
